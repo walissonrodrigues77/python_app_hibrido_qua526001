@@ -1,0 +1,3 @@
+nome_completo = "walisson rodrigues" guardando na memoria string significa texto
+print(nome_completo)
+numeros decimais float 
