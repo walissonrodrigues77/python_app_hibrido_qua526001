@@ -1,3 +1,17 @@
 nome_completo = "walisson rodrigues" guardando na memoria string significa texto
 print(nome_completo)
 numeros decimais float 
+
+
+
+obs:
+
+
+
+
+cliente dono de loja    
+sistema que ele quer               # variavel aluno variavel nota
+nome aluno 
+nota enem                nota minima 0 nota maxima 10
+aprovado
+reprovado
