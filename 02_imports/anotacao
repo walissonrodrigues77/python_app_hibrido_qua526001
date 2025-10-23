@@ -1,0 +1,8 @@
+criar ambiente virtual 
+py -m venv .venv
+
+ativar ambiente virtual
+.venv\Scritps\actative
+
+fazer import de uma biblioteca 
+leg de proposito "atraso"
