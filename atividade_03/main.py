@@ -22,17 +22,20 @@ imc_arredondado = round(imc, 2)
 print(f"Nome: {nome}")
 print(f"Seu imc é: {imc_arredondado}")
   
+  # laço de repetção 
+  #diagnostico imc do usuário
   
 if imc < 18.5:
-    print("Diagnostico:Abaixo do peso")
-elif 18.5 <= imc < 24.9:
-    print("Diagnostico: peso normal:")
-elif 24.9 <= imc < 29.9:
-    print(f"Diagnostico: Sobrepeso:")
-else :
-    print("Diagnostico: Obesidade:")
+    print(f"{nome} Seu Diagnostico:Abaixo do peso")
+elif 18.5 <= imc < 25:
+    print(f"{nome} Seu Diagnostico: peso normal:")
+elif 25 <= imc < 30:
+    print(f"{nome} Seu Diagnostico: Sobrepeso:")
+elif 35 <= imc < 35:
+    print(f"{nome} Seu Diagnostico: Obesidade mnível II.")
+else : 
+    print(f"{nome}Seu Diagnostico: Obesidade:")
     
-time.sleep(3)
+time.sleep(5)
 
-
-print(" Programa finalizado Volte sempre:")
+print(f" Programa finalizado Volte sempre: ")

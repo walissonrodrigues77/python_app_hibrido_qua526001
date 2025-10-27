@@ -14,51 +14,61 @@
 # o programa impede a entrada do usuário e re-exibe a lista de filmes 
 # para que o mesmo escolha outro filme.
 
+try:
+ # entrada de dados
+    nome = input("Digite seu nome: ").strip().title()
+    idade = int(input("Digite sua idade: ").strip())
 
+     #listas de filmes
+     # Usando tuplas imutáveis em vez de dicionários (menos overhead de memória)
+    
+    sala_1 = "A Roda Quadrada"
+    sala_2 =  "A Volta dos Que Não Foram"
+    sala_3 = "Poeira em Alto Mar"
+    sala_4 =  "As Tranças do Rei Careca"
+    sala_5 = "A Vingança do Frango Assado"
 
-def main():
-    # Solicita o nome e idade do usuário
-    nome = input("Digite seu nome: ")
-    idade = int(input("Digite sua idade: "))
-
-    # Lista de filmes e suas classificações
-    filmes = [
-        {"sala": 1, "titulo": "A Roda Quadrada", "classificacao": "Livre"},
-        {"sala": 2, "titulo": "A Volta dos Que Não Foram", "classificacao": "12 anos"},
-        {"sala": 3, "titulo": "Poeira em Alto Mar", "classificacao": "14 anos"},
-        {"sala": 4, "titulo": "As Tranças do Rei Careca", "classificacao": "16 anos"},
-        {"sala": 5, "titulo": "A Vingança do Frango Assado", "classificacao": "18 anos"},
-    ]
-
+#loop
     while True:
-        # Exibe a lista de filmes
-        print("\nEscolha um filme:")
-        for filme in filmes:
-            print(f"Sala {filme['sala']} - {filme['titulo']} - Classificação: {filme['classificacao']}")
+ 
+        # menu de filmes
+        print(f"Sala_1 - {sala_1} - Livre")
+        print(f"Sala_2 - {sala_2} - 12 anos")
+        print(f"Sala_3 - {sala_3} - 14 anos")
+        print(f"Sala_4 - {sala_4} - 16 anos")
+        print(f"Sala_5 - {sala_5} - 18 anos")
 
-        # Solicita a escolha do filme
-        escolha = int(input("\nDigite o número da sala do filme que deseja assistir: "))
+        sala = input(" Informe a sala desejada: ").strip()
 
-        # Verifica se a escolha é válida
-        if 1 <= escolha <= 5:
-            filme_escolhido = filmes[escolha - 1]
-            classificacao = filme_escolhido["classificacao"]
+        #verificar sala selecionada
+       
+        match sala: 
+            case "1":
+                filme = sala_1
+                idade_minima = 0
+            case "2":
+                filme = sala_2
+                idade_minima = 12
+            case "3":
+                filme = sala_3
+                idade_minima = 14
+            case "4":
+                filme = sala_4
+                idade_minima = 16
+            case "5":
+                filme = sala_5
+                idade_minima = 18
+            case _:
 
-            # Verifica se o usuário tem a idade mínima para o filme
-            if (classificacao == "Livre" or
-                (classificacao == "12 anos" and idade >= 12) or
-                (classificacao == "14 anos" and idade >= 14) or
-                (classificacao == "16 anos" and idade >= 16) or
-                (classificacao == "18 anos" and idade >= 18)):
-                
-                # Exibe o ingresso
-                print(f"\nIngresso aprovado! {nome}, você pode assistir '{filme_escolhido['titulo']}' na Sala {filme_escolhido['sala']}.")
-                break
-            else:
-                # Usuário não tem idade mínima para o filme
-                print(f"\nDesculpe, {nome}. Você não tem idade suficiente para assistir '{filme_escolhido['titulo']}'.")
+                print("sala inexistente.")
+
+        if idade>= idade_minima:
+            
+            print(f"{nome} escolheu {filme}.Tenha um bom filme")
+            break
         else:
-            print("\nEscolha inválida! Tente novamente.")
+            print(f"{nome} não foi autorizada a ver{filme}")
+            continue
 
-if __name__ == "__main__":
-    main()
+except Exception as e:
+         print(f"Erro no programa...{e}")
