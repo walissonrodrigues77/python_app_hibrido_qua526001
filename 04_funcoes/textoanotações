@@ -1,1 +1,26 @@
 # TODO - : atividade: Crie uma nova função para calcular a hipotenusa do triangulo retangulo
+
+
+
+# 🌦️ 5. App de previsão do tempo
+
+Descrição:
+Consulta dados meteorológicos de uma API (como OpenWeatherMap) e mostra temperatura, umidade e ícone do clima.
+Funcionalidades:
+
+Busca por cidade.
+
+Armazena últimas buscas.
+
+Interface com ícones e cores dinâmicas.
+Tecnologia:
+
+Flet ou Kivy.
+
+API REST (usando requests).
+
+Nível: Médio (bom pra treinar integração com APIs e UI reativa).
+
+
+
+Desenvolver e manter aplicações web full stack utilizando NodeJS, NestJS e Angular, apoiando a digitalização de processos e a integração entre sistemas.
