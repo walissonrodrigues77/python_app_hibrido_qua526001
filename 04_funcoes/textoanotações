@@ -24,3 +24,7 @@ Nível: Médio (bom pra treinar integração com APIs e UI reativa).
 
 
 Desenvolver e manter aplicações web full stack utilizando NodeJS, NestJS e Angular, apoiando a digitalização de processos e a integração entre sistemas.
+
+
+criar dois arquivos na pasta,, um modolo.py outro main.py e importar de uma pra outro iniciando com os import os e import math
+em seguida o def limpar
