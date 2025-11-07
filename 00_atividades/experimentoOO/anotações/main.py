@@ -51,3 +51,45 @@ print("\nDados do usuário armazenados:\n")
 for chave, valor in dados_usuario.items():
     time.sleep(1)
     print(f"{chave.capitalize()}: {valor}\n")
+
+
+
+#Recomendação de crédito
+
+#➡️ Aprendizado: Python é excelente pra isso — estude Machine Learning (bibliotecas como pandas, scikit-learn).
+
+
+#Tokens de acesso
+
+#➡️ Aprendizado: entenda criptografia básica e autenticação JWT.
+
+#💬 3. Chatbots inteligent
+
+#Fintechs usam IA (como eu 😄) para atender clientes automaticamente.
+
+💡# Como fazer:
+#Usar APIs de linguagem natural (NLP) — por exemplo:
+
+#OpenAI API (para chatbots)
+
+#Rasa (plataforma de chatbot open-source)
+#Depois disso, estudar IA aplicada a dados financeiros
+
+➡️ Sugestão de trilha:
+
+#Etapa	Aprendizado
+#1	Lógica e Python
+#2	Programação orientada a objetos
+#3	Banco de dados (SQLite, PostgreSQL)
+#4	Criptografia e autenticação
+#5	APIs e integração web
+#6	Machine Learning (pandas, scikit-learn)
+#7	Frameworks web (Flask, FastAPI)
+
+
+
+#(rainbow tables).
+
+
+
+#
