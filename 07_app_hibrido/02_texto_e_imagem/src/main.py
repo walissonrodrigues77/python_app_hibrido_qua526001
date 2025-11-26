@@ -7,12 +7,12 @@ def main(page: ft.Page):
     page.add(
         ft.SafeArea(
             ft.Container(
-                ft.Text("Minha primeira aplicação", size=90, weight="bold"),
+                ft.Text("Minha primeira aplicação", size=50, weight="bold"),
                 alignment=ft.alignment.center,
             ),
         ),
         ft.Container(ft.Image(
-            src="imagem.jpg",
+            src="burger.jpg",
             fit=ft.ImageFit.CONTAIN,
             error_content=ft.Text("Não foi possivel carregar a imagem")
         ),

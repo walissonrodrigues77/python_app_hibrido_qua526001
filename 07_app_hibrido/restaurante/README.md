@@ -1,4 +1,4 @@
-# 02TextoEImagem app
+# Restaurante app
 
 ## Run the app
 
