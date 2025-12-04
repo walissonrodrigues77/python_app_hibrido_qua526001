@@ -161,3 +161,8 @@ cython_debug/
 
 # Flet
 storage/
+
+*/*__pycache__
+*/.venv
+07_app_hibrido/audios/*
+07_app_hibrido/videos/*
