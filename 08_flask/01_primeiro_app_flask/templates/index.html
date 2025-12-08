@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Matrix Hacker Pro 2.0</title>
+
+<style>
+    /* ===== Corpo e fundo ===== */
+    body {
+        margin: 0;
+        overflow: hidden;
+        background: black;
+        font-family: monospace;
+        color: #00ff00;
+        position: relative;
+    }
+
+    canvas {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+    }
+
+    /* ===== GIF animado ===== */
+    .gif-container {
+        position: absolute;
+        top: 40%;
+        left: -200px;
+        width: 150px;
+        animation: moverGif 8s linear infinite;
+        z-index: 5;
+        transition: transform 0.5s ease, filter 0.5s ease;
+    }
+
+    @keyframes moverGif {
+        0% { left: -200px; transform: rotate(0deg) scale(1); }
+        50% { left: 50%; transform: rotate(180deg) scale(1.2); }
+        100% { left: 100%; transform: rotate(360deg) scale(1); }
+    }
+
+    /* ===== Terminal estilo hacker ===== */
+    .terminal {
+        position: absolute;
+        bottom: 10%;
+        width: 100%;
+        text-align: center;
+        font-size: 20px;
+        white-space: nowrap;
+        overflow: hidden;
+        border-right: .15em solid #00ff00;
+    }
+
+    .terminal.blink {
+        animation: blink 0.7s step-end infinite;
+    }
+
+    @keyframes blink {
+        50% { border-color: transparent; }
+    }
+
+    /* ===== Botão Hacker Pro ===== */
+    #hackerBtn {
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        background: #00ff00;
+        color: black;
+        border: none;
+        padding: 10px 15px;
+        cursor: pointer;
+        font-weight: bold;
+        opacity: 0.6;
+        z-index: 10;
+        border-radius: 5px;
+    }
+
+    #hackerBtn:hover {
+        opacity: 1;
+    }
+
+    /* ===== Modo Hacker Pro ===== */
+    .hacker-mode {
+        background: black;
+    }
+
+    .hacker-mode .gif-container {
+        animation-duration: 4s;
+        transform: scale(1.5);
+        filter: drop-shadow(0 0 20px #0ff);
+    }
+
+    .hacker-mode canvas {
+        /* Mais intenso: brilho e mais denso */
+        filter: brightness(1.5) contrast(1.2);
+    }
+</style>
+</head>
+<body>
+
+<!-- Canvas da chuva de códigos -->
+<canvas id="matrix"></canvas>
+
+<!-- GIF animado -->
+<div class="gif-container">
+    <img src="{{ url_for('static', filename='img/orango.gif') }}" alt="Orango" width="150">
+</div>
+
+<!-- Terminal hacker -->
+<div class="terminal blink" id="terminal"></div>
+
+<!-- Botão Hacker Pro -->
+<button id="hackerBtn">💻 Hacker Pro</button>
+
+<!-- Música de fundo -->
+<audio autoplay loop>
+    <source src="{{ url_for('static', filename='audio/matrix.mp3') }}" type="audio/mpeg">
+</audio>
+
+<script>
+    /* ===== Efeito Matrix ===== */
+    const canvas = document.getElementById("matrix");
+    const ctx = canvas.getContext("2d");
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const chars = "01あカサタナハマラワアイウエオ";
+    const matrix = chars.split("");
+    const fontSize = 16;
+    const columns = canvas.width / fontSize;
+    let drops = Array.from({length: columns}, () => 1);
+
+    let hackerMode = false;
+
+    function draw() {
+        ctx.fillStyle = hackerMode ? "rgba(0, 0, 0, 0.02)" : "rgba(0, 0, 0, 0.05)";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        ctx.fillStyle = "#00FF00";
+        ctx.font = fontSize + "px monospace";
+
+        drops.forEach((y, i) => {
+            const text = matrix[Math.floor(Math.random() * matrix.length)];
+            ctx.fillText(text, i * fontSize, y * fontSize);
+
+            if (y * fontSize > canvas.height && Math.random() > 0.975) {
+                drops[i] = 0;
+            }
+
+            drops[i]++;
+        });
+    }
+
+    setInterval(draw, 33);
+
+    /* ===== Texto digitando ===== */
+    const terminal = document.getElementById("terminal");
+    let messages = [
+        "carregando sistema...",
+        "inicializando protocolo...",
+        "acesso autorizado_"
+    ];
+    let msgIndex = 0;
+    let charIndex = 0;
+
+    function type() {
+        if (msgIndex >= messages.length) return;
+        terminal.textContent = messages[msgIndex].slice(0, charIndex) + "_";
+        charIndex++;
+        if (charIndex > messages[msgIndex].length) {
+            charIndex = 0;
+            msgIndex++;
+            setTimeout(type, 700);
+        } else {
+            setTimeout(type, 100);
+        }
+    }
+
+    type();
+
+    /* ===== Botão Hacker Pro ===== */
+    const hackerBtn = document.getElementById("hackerBtn");
+    hackerBtn.addEventListener("click", () => {
+        hackerMode = !hackerMode;
+        document.body.classList.toggle("hacker-mode", hackerMode);
+
+        if(hackerMode) {
+            messages.push("!!! MODO HACKER ATIVADO !!!");
+            type();
+        }
+    });
+
+    /* ===== Responsividade ===== */
+    window.addEventListener("resize", () => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    });
+</script>
+
+</body>
+</html>
